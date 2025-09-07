@@ -1,87 +1,103 @@
-# Wealth Management Multi‑Agent (AutoGen) – Ready‑to‑Run
 
-A production‑grade skeleton for a hyper‑personalized wealth‑management multi‑agent system (Discovery → Planning || Tax → Risk → Compliance → Comms). Includes typed artifacts, policy‑as‑code, working mocks, and a FastAPI wrapper.
+# Wealth Management Multi-Agent System (AutoGen)
 
-## Highlights
+A robust, production-ready framework for building hyper-personalized, multi-agent wealth management solutions. This system orchestrates the entire client journey from Discovery through Planning, Tax, Risk, Compliance, and Communications, leveraging typed artifacts, policy-as-code, comprehensive mocks, and a FastAPI API layer.
 
-- Multi‑agent orchestration with explicit flow: Discovery → [Planning || Tax] → Risk → Compliance → Comms.
-- Typed artifacts (Pydantic v2) for ClientProfile, PlanSet, TaxActionPlan, RiskReport, ComplianceDecision, CommsPackage.
-- Policy‑as‑code: validation, guardrails, schema‑first outputs, missing_fields behavior.
-- Working mocks for market data, tax brackets, and KYC.
-- Comms agent produces a numbered “Financial DNA + Hyper‑Personalized Action Plan.”
-- Single, shared ArtifactStore to persist intermediate outputs during runs.
 
-## Quick start
+## Key Features
 
-1) Clone and setup
+- **Multi-Agent Orchestration:** Explicit, modular flow: Discovery → [Planning & Tax in parallel] → Risk → Compliance → Communications.
+- **Typed Artifacts:** Strongly-typed outputs using Pydantic v2 for all major entities (ClientProfile, PlanSet, TaxActionPlan, RiskReport, ComplianceDecision, CommsPackage).
+- **Policy-as-Code:** Built-in validation, guardrails, schema-first outputs, and robust handling of missing fields.
+- **Comprehensive Mocks:** Includes realistic market data, tax brackets, and KYC scenarios for development and testing.
+- **Professional Communications:** Automated generation of a numbered, executive “Financial DNA & Hyper-Personalized Action Plan.”
+- **Centralized Artifact Store:** Shared store for all intermediate and final outputs, supporting traceability and auditability.
 
-- Create a new virtual environment (Python 3.11+).
-- Copy repo files, then:
-
-```
 pip install -e .
-cp .env.example .env
-```
 
-2) Configure model
+## Getting Started
 
-- In .env, set your model keys (example placeholders):
-    - LLM_PROVIDER=azure_openai|openai|other
-    - LLM_MODEL=gpt-4o-mini
-    - LLM_API_KEY=YOUR_KEY
+### 1. Environment Setup
 
-3) Run the full flow (CLI)
-```
-python -m app.main
-```
+- Ensure Python 3.11+ is installed.
+- Clone this repository and navigate to the project directory.
+- Create and activate a virtual environment:
+    ```sh
+    python -m venv venv
+    .\venv\Scripts\activate  # On Windows
+    source venv/bin/activate  # On Linux/Mac
+    ```
+- Install dependencies:
+    ```sh
+    pip install -e .
+    cp .env.example .env
+    ```
 
-4) Run API server (FastAPI)
-```
-uvicorn app.api.server:app --reload --port 8080
-```
+### 2. Model Configuration
 
-5) Call the flow endpoint
-POST http://localhost:8080/cases/case_alex/run
+Edit the `.env` file to set your model provider and API keys:
 
-- Body: contents of src/app/agents/mocks/client_input_alex.json
+- `LLM_PROVIDER=azure_openai|openai|other`
+- `LLM_MODEL=gpt-4o-mini`
+- `LLM_API_KEY=YOUR_KEY`
 
-GET http://localhost:8080/cases/case_alex/artifacts
+### 3. Running the Application
 
-- Retrieves all artifacts for the case.
+- **Full Orchestration (CLI):**
+    ```sh
+    python -m app.main
+    ```
+- **API Server (FastAPI):**
+    ```sh
+    uvicorn app.api.server:app --reload --port 8080
+    ```
 
-## Repository layout
+### 4. Example API Usage
 
-- agent_specs.yaml: Business rules and calculation steps per agent.
-- src/app/schemas: Pydantic models and JSON Schemas for every artifact.
-- src/app/agents: Orchestration graph + runner; modular tools; mocks.
-- src/app/core: Loader (YAML), policies (validation/defaults), prompts, utils.
-- src/app/storage: Simple in‑memory store + optional DB hooks.
-- src/app/api: FastAPI server and DTOs.
-- tests: Minimal tests for schema validation and comms formatting.
+- **Run a Case:**
+    - `POST http://localhost:8080/cases/case_alex/run`
+    - Body: Use the contents of `src/app/agents/mocks/client_input_alex.json`
+- **Retrieve Artifacts:**
+    - `GET http://localhost:8080/cases/case_alex/artifacts`
 
-## How it works
 
-1) Discovery reads client JSON, validates headers, normalizes accounts/holdings/liabilities, and builds ClientProfile.
-2) Planning and Tax run in parallel:
-    - Planning computes cashflow, savings rate, liquidity runway, allocations, scenarios, and shortfalls.
-    - Tax proposes TLH, Roth conversions, and DAF timing with compliance notes.
-3) Risk aggregates exposures, checks concentrations vs caps, runs stress, proposes mitigations.
-4) Compliance enforces policy‑as‑code, returns ApprovalGranted/ReworkNeeded with conditions/disclosures/redlines.
-5) Comms builds a numbered, professional exec_summary with KPIs and a phased action plan; fills required fields.
+## Repository Structure
 
-## Customize agent prompts
+- `agent_specs.yaml`: Business rules and calculation steps for each agent.
+- `src/app/schemas`: Pydantic models and JSON Schemas for all artifacts.
+- `src/app/agents`: Orchestration graph, runner, modular tools, and mocks.
+- `src/app/core`: YAML loader, policy validation/defaults, prompts, and utilities.
+- `src/app/storage`: In-memory store and optional database hooks.
+- `src/app/api`: FastAPI server and DTOs.
+- `tests`: Minimal tests for schema validation and communications formatting.
 
-- agent_specs.yaml drives each agent’s system prompt.
-- src/app/core/specs_loader.py compiles description + calculation_steps + output contract into the system message.
-- For deeper tuning, edit src/app/core/prompts.py.
 
-## Swap models or providers
+## System Overview
 
-- src/app/config/llm.py controls model/provider settings and timeouts.
-- You can route to different providers/versions via env vars.
+1. **Discovery:** Reads and validates client JSON, normalizes accounts/holdings/liabilities, and constructs the ClientProfile artifact.
+2. **Planning & Tax (Parallel):**
+    - *Planning:* Computes cashflow, savings rate, liquidity runway, allocations, scenarios, and identifies shortfalls.
+    - *Tax:* Proposes tax-loss harvesting, Roth conversions, and DAF timing, with compliance notes.
+3. **Risk:** Aggregates exposures, checks concentration limits, runs stress tests, and proposes mitigations.
+4. **Compliance:** Enforces policy-as-code, returns ApprovalGranted or ReworkNeeded with conditions, disclosures, and redlines.
+5. **Communications:** Builds a professional, numbered executive summary with KPIs and a phased action plan, ensuring all required fields are completed.
 
-## Persistence & logs
 
-- src/app/storage/memory_store.py: in‑memory store for develop.
-- src/app/storage/store.py: hook for Postgres/S3; implement save_artifacts/get_artifacts.
-- All runs log inputs/outputs and rationale; add hashing in policies if needed.
+## Customizing Agent Prompts
+
+- `agent_specs.yaml` defines each agent’s system prompt.
+- `src/app/core/specs_loader.py` compiles descriptions, calculation steps, and output contracts into system messages.
+- For advanced tuning, modify `src/app/core/prompts.py`.
+
+
+## Model & Provider Flexibility
+
+- `src/app/config/llm.py` manages model/provider settings and timeouts.
+- Easily switch between providers or model versions using environment variables.
+
+
+## Persistence & Logging
+
+- `src/app/storage/memory_store.py`: In-memory store for development.
+- `src/app/storage/store.py`: Hooks for Postgres/S3; implement `save_artifacts`/`get_artifacts` as needed.
+- All runs log inputs, outputs, and rationale. Add hashing in policies for enhanced traceability if required.
