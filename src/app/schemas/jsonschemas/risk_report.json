@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RiskReport",
+  "type": "object",
+  "properties": {
+    "exposures": {"type": "object"},
+    "concentrations": {"type": "object"},
+    "stress_results": {"type": "array", "items": {"type": "object"}},
+    "liquidity_tiers": {"type": "object"},
+    "mitigations": {"type": "array", "items": {"type": "object"}},
+    "rationale": {"type": "string"},
+    "data_lineage": {"type": "object"},
+    "missing_fields": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["exposures", "concentrations", "stress_results", "liquidity_tiers", "mitigations", "rationale", "data_lineage", "missing_fields"]
+}

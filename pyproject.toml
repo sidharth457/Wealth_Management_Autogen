@@ -1,0 +1,15 @@
+[project]
+name = "wealth-multi-agent"
+version = "0.1.0"
+description = "Wealth management multi-agent skeleton (AutoGen)"
+requires-python = ">=3.11"
+dependencies = [
+"pydantic>=2.7.0",
+"fastapi>=0.111.0",
+"uvicorn[standard]>=0.30.0",
+"httpx>=0.27.0",
+"pyyaml>=6.0.1",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}

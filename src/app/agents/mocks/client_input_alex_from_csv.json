@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2025-08-12",
+  "currency": "USD",
+  "identity": {
+    "user_id": "u_1001",
+    "Name": {
+      "First": "Alex",
+      "Last": "Parker"
+    },
+    "age": 33,
+    "dob": "1992-11-03",
+    "marital_status": "married_filing_jointly",
+    "citizenship": "US",
+    "residency": {
+      "country": "US",
+      "state": "CA",
+      "city": "San Diego",
+      "zip": "92103"
+    },
+    "dependents": [
+      {
+        "name": "Mia",
+        "age": 3,
+        "relationship": "child"
+      }
+    ]
+  },
+  "employment": {
+    "status": "full_time",
+    "employer": "Coastal Health Systems",
+    "title": "Product Manager",
+    "start_date": "2021-06-01",
+    "salary_gross_annual": 145000,
+    "pay_frequency": "biweekly",
+    "expected_bonus_annual": 10000,
+    "stock_comp": {
+      "espp": {
+        "discount": 0.15,
+        "contribution_rate": 0.05
+      },
+      "rsu": {
+        "annual_grant_value": 15000,
+        "vesting_schedule": "4y/1y cliff, quarterly thereafter"
+      }
+    }
+  },
+  "partner_employment": {
+    "status": "part_time",
+    "employer": "Pacific Design Studio",
+    "title": "Graphic Designer",
+    "salary_gross_annual": 52000,
+    "pay_frequency": "semimonthly"
+  },
+  "tax_profile": {
+    "filing_status": "married_filing_jointly",
+    "state": "CA",
+    "itemize": false,
+    "marginal_brackets_hint": {
+      "federal": "2025",
+      "state": "2025"
+    }
+  },
+  "preferences": {
+    "risk_tolerance": "moderate",
+    "rebalance_preference": "quarterly",
+    "esg_preference": "neutral",
+    "liquidity_preference_months": 6,
+    "constraints": {
+      "single_stock_max_pct": 0.10,
+      "avoid_industries": ["tobacco"]
+    }
+  }
+}

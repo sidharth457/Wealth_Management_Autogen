@@ -1,0 +1,2 @@
+transactions__tx_id,transactions__date,transactions__account_id,transactions__amount,transactions__merchant,amount_combined,date_parsed
+,,,,,0.0,

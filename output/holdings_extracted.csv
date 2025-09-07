@@ -1,0 +1,18 @@
+accounts__holdings__symbol,accounts__holdings__name,accounts__holdings__asset_class,accounts__holdings__quantity,accounts__holdings__price,accounts__holdings__as_of,market_value,symbol_clean,asset_class_clean
+,,,,,,0.0,nan,nan
+,,,,,,0.0,nan,nan
+,,,,,,0.0,nan,nan
+VTI,Vanguard Total US,Equity/US,520.0,265.0,2025-08-09,137800.0,VTI,Equity/US
+VXUS,Vanguard Total Intl,Equity/Intl,220.0,62.5,2025-08-09,13750.0,VXUS,Equity/Intl
+BND,Vanguard Total Bond,Fixed Income/US,300.0,73.2,2025-08-09,21960.0,BND,Fixed Income/US
+CASH,Settlement,Cash,1.0,500.1,2025-08-09,500.1,CASH,Cash
+VT,Vanguard Total World,Equity/Global,220.0,107.0,2025-08-09,23540.0,VT,Equity/Global
+ITOT,iShares Core S&P Total US,Equity/US,40.0,117.5,2025-08-09,4700.0,ITOT,Equity/US
+AGG,iShares Core US Aggregate,Fixed Income/US,20.0,98.0,2025-08-09,1960.0,AGG,Fixed Income/US
+CASH,Cash,Cash,1.0,730.75,2025-08-09,730.75,CASH,Cash
+VTI,Vanguard Total US,Equity/US,60.0,265.0,2025-08-09,15900.0,VTI,Equity/US
+VXUS,Vanguard Total Intl,Equity/Intl,70.0,62.5,2025-08-09,4375.0,VXUS,Equity/Intl
+SCHZ,Schwab US Aggregate Bond,Fixed Income/US,80.0,45.8,2025-08-09,3664.0,SCHZ,Fixed Income/US
+AAPL,Apple Inc.,Equity/US,25.0,205.0,2025-08-09,5125.0,AAPL,Equity/US
+CASH,Cash,Cash,1.0,1200.0,2025-08-09,1200.0,CASH,Cash
+SWYGX,Schwab Target 2040,Allocation/TargetDate,310.0,20.0,2025-08-09,6200.0,SWYGX,Allocation/TargetDate

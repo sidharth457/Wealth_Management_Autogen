@@ -1,0 +1,16 @@
+transactions__tx_id,transactions__date,transactions__account_id,transactions__amount,transactions__merchant,amount_combined,date_parsed
+t2001,2025-08-09,chk_2001,-162.45,Trader Joe's,-162.45,2025-08-09
+t2002,2025-08-06,chk_2001,-48.99,Netflix,-48.99,2025-08-06
+,,,,,0.0,
+t2101,2025-08-05,chk_2002,-36.9,Uber,-36.9,2025-08-05
+t2102,2025-08-06,chk_2002,-550.0,Rent,-550.0,2025-08-06
+t2201,2025-08-07,chk_2003,-122.75,Costco,-122.75,2025-08-07
+,,,,,0.0,
+t2301,2025-08-08,,-75.5,HEB Grocery,-75.5,2025-08-08
+,,,,,0.0,
+,,,,,0.0,
+,,,,,0.0,
+,,,,,0.0,
+,,,,,0.0,
+,,,,,0.0,
+,,,,,0.0,

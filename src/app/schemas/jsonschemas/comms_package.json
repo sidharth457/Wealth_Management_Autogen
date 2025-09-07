@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CommsPackage",
+  "type": "object",
+  "properties": {
+    "proposal_refs": {"type": "object"},
+    "exec_summary": {"type": "string"},
+    "agenda": {"type": "array", "items": {"type": "string"}},
+    "followups": {"type": "array", "items": {"type": "object"}},
+    "approval_status": {"type": "string"},
+    "rationale": {"type": "string"},
+    "data_lineage": {"type": "object"},
+    "missing_fields": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["proposal_refs", "exec_summary", "agenda", "followups", "approval_status", "rationale", "data_lineage", "missing_fields"]
+}

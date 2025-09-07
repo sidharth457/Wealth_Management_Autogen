@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClientProfile",
+  "type": "object",
+  "properties": {
+    "schema_version": {"type": "string"},
+    "as_of": {"type": "string"},
+    "currency": {"type": "string"},
+    "identity": {"type": "object"},
+    "preferences": {"type": "object"},
+    "rationale": {"type": "string"},
+    "data_lineage": {"type": "object"},
+    "missing_fields": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["schema_version", "as_of", "currency", "identity", "preferences", "rationale", "data_lineage", "missing_fields"]
+}

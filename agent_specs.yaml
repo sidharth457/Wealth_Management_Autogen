@@ -1,0 +1,46 @@
+# Example agent_specs.yaml
+# Business rules and calculation steps per agent
+# Replace with your latest version as needed
+
+discovery:
+  description: "Synthesizes baseline client profile from input."
+  calculation_steps:
+    - "Validate headers and normalize accounts, holdings, liabilities."
+    - "Build ClientProfile artifact."
+  output_contract: "ClientProfile"
+
+planning:
+  description: "Computes cashflow, savings rate, allocations, scenarios, and shortfalls."
+  calculation_steps:
+    - "Calculate baseline cashflow and savings rate."
+    - "Project liquidity runway and allocations."
+    - "Identify funding gaps and scenarios."
+  output_contract: "PlanSet"
+
+tax:
+  description: "Proposes TLH, Roth conversions, DAF timing with compliance notes."
+  calculation_steps:
+    - "Identify tax actions based on client profile and plan set."
+    - "Estimate expected tax impact."
+  output_contract: "TaxActionPlan"
+
+risk:
+  description: "Aggregates exposures, checks concentrations, runs stress, proposes mitigations."
+  calculation_steps:
+    - "Aggregate exposures and check concentrations vs caps."
+    - "Run stress tests and propose mitigations."
+  output_contract: "RiskReport"
+
+compliance:
+  description: "Enforces policy-as-code, returns ApprovalGranted/ReworkNeeded."
+  calculation_steps:
+    - "Validate compliance against policies."
+    - "Return decision, conditions, disclosures, redlines."
+  output_contract: "ComplianceDecision"
+
+comms:
+  description: "Builds numbered exec_summary and phased action plan."
+  calculation_steps:
+    - "Compose executive summary and action plan."
+    - "Fill required fields and follow-ups."
+  output_contract: "CommsPackage"
